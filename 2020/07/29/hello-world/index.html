@@ -19,7 +19,7 @@
   <meta name="description" content="">
   <meta name="author" content="YangYang">
   <meta name="keywords" content="">
-  <title>实现 - YangYang&#39;s Space</title>
+  <title>实现Hexo自动化部署及在线编辑功能 - YangYang&#39;s Space</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -148,7 +148,7 @@
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
-                实现
+                实现Hexo自动化部署及在线编辑功能
               
             </span>
 
@@ -167,7 +167,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      75 字
+      444 字
     </span>
   
 
@@ -177,7 +177,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      6
        分钟
     </span>
   
@@ -216,19 +216,39 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="hljs"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span></code></pre></div>
+              <p>利用Github Action功能实现Hexo的自动化部署，不需要自己在本地进行代码的构建打包，以及实现在线编辑功能，从而方便Markdown文本后续的修改和优化</p>
+<a id="more"></a>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="hljs"><pre><code class="hljs bash">$ hexo server</code></pre></div>
+<h2 id="利用Github-Action功能实现Hexo的自动化部署"><a href="#利用Github-Action功能实现Hexo的自动化部署" class="headerlink" title="利用Github Action功能实现Hexo的自动化部署"></a>利用Github Action功能实现Hexo的自动化部署</h2><p>下面完成的是通过github的Action完成自动化部署，就是提交代码后自动发布，类似webhook<br>1.创建一个myblog的分支<br>2.创建 .github\workflows\deploy.yml<br>3.向deploy文件中写入以下代码，大致意思是进行检查与相关部署（其中api文档在github的每个项目里action选项当中有）<br>4.提交代码修改后，push my-blog分支，然后到github中查看actions是否成功运行。</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">Build</span> <span class="hljs-string">and</span> <span class="hljs-string">Deploy</span>
+<span class="hljs-attr">on:</span> [<span class="hljs-string">push</span>]
+<span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">build-and-deploy:</span>
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+    <span class="hljs-attr">steps:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Checkout</span> <span class="hljs-string">🛎️</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v2</span> <span class="hljs-comment"># If you&#x27;re using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.</span>
+        <span class="hljs-attr">with:</span>
+          <span class="hljs-attr">persist-credentials:</span> <span class="hljs-literal">false</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Install</span> <span class="hljs-string">and</span> <span class="hljs-string">Build</span> <span class="hljs-string">🔧</span> <span class="hljs-comment"># This example project is built using npm and outputs the result to the &#x27;build&#x27; folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.</span>
+        <span class="hljs-attr">run:</span> <span class="hljs-string">|</span>
+          <span class="hljs-string">npm</span> <span class="hljs-string">install</span>
+          <span class="hljs-string">npm</span> <span class="hljs-string">run</span> <span class="hljs-string">build</span>
+        <span class="hljs-attr">env:</span>
+          <span class="hljs-attr">CI:</span> <span class="hljs-literal">false</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Deploy</span> <span class="hljs-string">🚀</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">JamesIves/github-pages-deploy-action@releases/v3</span>
+        <span class="hljs-attr">with:</span>
+          <span class="hljs-attr">GITHUB_TOKEN:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">secrets.GITHUB_TOKEN</span> <span class="hljs-string">&#125;&#125;</span>
+          <span class="hljs-attr">BRANCH:</span> <span class="hljs-string">master</span> <span class="hljs-comment"># The branch the action should deploy to.</span>
+          <span class="hljs-attr">FOLDER:</span> <span class="hljs-string">public</span> <span class="hljs-comment"># The folder the action should deploy.</span></code></pre></div>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="hljs"><pre><code class="hljs bash">$ hexo generate</code></pre></div>
+<h2 id="实现在线编辑功能"><a href="#实现在线编辑功能" class="headerlink" title="实现在线编辑功能"></a>实现在线编辑功能</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>利用对主题文件下的ejs模板进行修改，利用github网址的规律，添加一个指向该篇文章的超链接<br>代码如下：</p>
+<div class="hljs"><pre><code class="hljs livecodeserver">&lt;<span class="hljs-keyword">div</span>&gt;
+  &lt;<span class="hljs-keyword">a</span> target=<span class="hljs-string">&quot;_blank&quot;</span> href=<span class="hljs-string">&quot;你的项目编辑页面链接不要后缀&lt;%- page.source %&gt;&quot;</span>&gt;编辑/<span class="hljs-keyword">a</span>&gt;
+&lt;/<span class="hljs-keyword">div</span>&gt;</code></pre></div>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="hljs"><pre><code class="hljs bash">$ hexo deploy</code></pre></div>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>直接在vscode上下载.markdown-all-in-one 插件,可以实现在线预览，写好后直接提交代码进行更新</p>
 
               <div style="text-align: center;">
                 <a href = "https://github.com/insist-on-coding/insist-on-coding.github.io/edit/myblog/source/_posts/hello-world.md">点此编辑</a>
@@ -238,6 +258,20 @@
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/others/">others</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/hexo/">hexo</a>
+                    
+                  </div>
                 
               </div>
               

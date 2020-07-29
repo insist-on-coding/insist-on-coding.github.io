@@ -19,7 +19,7 @@
   <meta name="description" content="">
   <meta name="author" content="YangYang">
   <meta name="keywords" content="">
-  <title>分类 - YangYang&#39;s Space</title>
+  <title>标签 - hexo - YangYang&#39;s Space</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -132,14 +132,14 @@
 </nav>
 
     <div class="view intro-2" id="background" parallax=true
-         style="background: url('https://photo-1302571810.cos.ap-guangzhou.myqcloud.com/rohit-tandon-9wg5jCEPBsw-unsplash%20(1).jpg') no-repeat center center;
+         style="background: url('https://photo-1302571810.cos.ap-guangzhou.myqcloud.com/samrat-khadka-9KcHl3Tp79k-unsplash%20(1).jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
-                分类
+                标签 - hexo
               
             </span>
 
@@ -163,54 +163,22 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-
-
-
-
-
-
-<div class="category-list">
+<div class="list-group">
+  <p class="h4">共计 1 篇文章</p>
+  <hr>
   
-  
-  
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckd7kd2qf0002fw2iasw49ori" role="tab" data-toggle="collapse" href="#collapse-ckd7kd2qf0002fw2iasw49ori"
-        aria-expanded="false"
-      >
-        others
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/others/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckd7kd2qf0002fw2iasw49ori" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckd7kd2qf0002fw2iasw49ori">
-    
-    
     
       
-      
-        <a href="/2020/07/29/hello-world/" class="list-group-item list-group-item-action">
-          <span class="category-post">实现Hexo自动化部署及在线编辑功能</span>
-        </a>
-      
+      <p class="h5">2020</p>
     
-  </div>
-
-        
-      </div>
-    </div>
+    <a href="/2020/07/29/hello-world/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">实现Hexo自动化部署及在线编辑功能</span>
+      <span style="float: right;">07-29</span>
+    </a>
   
 </div>
+
+
 
               </div>
             </div>
@@ -439,7 +407,7 @@
       if ('false' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/categories/index.html');
+          var target = decodeURI('/tags/hexo/index.html');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
