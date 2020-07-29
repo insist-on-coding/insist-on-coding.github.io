@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>test</title>
+    <link href="/2020/07/30/test/"/>
+    <url>/2020/07/30/test/</url>
+    
+    <content type="html"><![CDATA[<p>aaa<br>aaa</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>实现Hexo自动化部署及在线编辑功能</title>
     <link href="/2020/07/29/hello-world/"/>
     <url>/2020/07/29/hello-world/</url>
