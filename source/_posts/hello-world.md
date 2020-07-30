@@ -2,7 +2,7 @@
 title: 实现Hexo自动化部署及在线编辑功能
 tags: [hexo]
 category: others
-index_img: https://photo-1302571810.cos.ap-guangzhou.myqcloud.com/4%20.jpg
+index_img: https://eatrice.top/thumbnail/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAhexo%E5%8D%9A%E5%AE%A2.png
 ---
 利用Github Action功能实现Hexo的自动化部署，不需要自己在本地进行代码的构建打包，以及实现在线编辑功能，从而方便Markdown文本后续的修改和优化
 <!-- more -->
