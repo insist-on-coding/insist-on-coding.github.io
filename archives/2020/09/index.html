@@ -19,7 +19,7 @@
   <meta name="description" content="">
   <meta name="author" content="YangYang">
   <meta name="keywords" content="">
-  <title>YangYang&#39;s Space</title>
+  <title>归档 - YangYang&#39;s Space</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -44,7 +44,7 @@
 
 
 <body>
-  <header style="height: 100vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -132,24 +132,20 @@
 </nav>
 
     <div class="view intro-2" id="background" parallax=true
-         style="background: url('https://cdn.cocacoder.cn/niketh-vellanki-QkSN_8XcXwQ-unsplash%20%281%29.jpg') no-repeat center center;
+         style="background: url('https://cdn.cocacoder.cn/n2142.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
-                Stay Hungry, Stay Foolish
+                归档
               
             </span>
 
             
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
           
         </div>
       </div>
@@ -160,61 +156,27 @@
     
       <div class="container nopadding-md">
         <div class="py-5" id="board"
-          style=margin-top:0>
+          >
           
           <div class="container">
             <div class="row">
               <div class="col-12 col-md-10 m-auto">
                 
 
-
-  <div class="row mx-auto index-card">
+<div class="list-group">
+  <p class="h4">共计 1 篇文章</p>
+  <hr>
+  
     
+      
+      <p class="h5">2020</p>
     
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2020/09/03/hello-world/" target="_blank">
-          <img src="https://eatrice.top/thumbnail/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAhexo%E5%8D%9A%E5%AE%A2.png" srcset="/img/loading.gif" alt="实现Hexo自动化部署及在线编辑功能">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2020/09/03/hello-world/">实现Hexo自动化部署及在线编辑功能</a>
-
-      <a href="/2020/09/03/hello-world/" class="index-excerpt">
-        
-        
-          
-        
-        <div>利用Github Action功能实现Hexo的自动化部署，不需要自己在本地进行代码的构建打包，以及实现在线编辑功能，从而方便Markdown文本后续的修改和优化</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-09-03
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/others/">others</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/hexo/">hexo</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
-
+    <a href="/2020/09/03/hello-world/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">实现Hexo自动化部署及在线编辑功能</span>
+      <span style="float: right;">09-03</span>
+    </a>
+  
+</div>
 
 
 
@@ -445,7 +407,7 @@
       if ('false' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/index.html');
+          var target = decodeURI('/archives/2020/09/index.html');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
